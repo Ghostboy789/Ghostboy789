@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="assets/header.svg?v=2" alt="Terminal: Medhansh Shekhawat, product manager moving into credit risk analytics. Projects: Pit Wall, an F1 strategy model validated against a plan written first; LimitIQ, a live credit-line decision system." width="900">
+  <img src="assets/header.svg" alt="Terminal: Medhansh Shekhawat, product manager moving into credit risk analytics. Projects: Pit Wall, an F1 strategy model validated against a plan written first; LimitIQ, a live credit-line decision system." width="900">
 </p>
 
 <p align="center">
-  <img src="assets/neofetch.svg?v=2" alt="Profile summary: role, focus, the two projects and their results, evidence, scope, stack." width="900">
+  <img src="assets/neofetch.svg" alt="Profile summary: role, focus, the two projects and their results, evidence, scope, stack." width="900">
 </p>
 
 ---
