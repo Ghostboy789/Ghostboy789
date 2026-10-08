@@ -1,84 +1,64 @@
 <p align="center">
-  <img src="assets/header.svg" alt="Terminal: Medhansh Shekhawat, product manager moving into credit risk analytics. Projects: Pit Wall, an F1 strategy model validated against a plan written first; LimitIQ, a live credit-line decision system." width="900">
+  <img src="assets/header.svg" alt="Medhansh Shekhawat. Credit risk, data analytics and product. I build models, then write down what would prove them wrong before I look." width="900">
 </p>
 
 <p align="center">
-  <img src="assets/neofetch.svg" alt="Profile summary: role, focus, the two projects and their results, evidence, scope, stack." width="900">
+  <a href="https://www.linkedin.com/in/medhansh-shekhawat/"><img src="https://img.shields.io/badge/LinkedIn-medhansh--shekhawat-0a66c2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+  <img src="https://img.shields.io/badge/based_in-Bangalore_·_Pune-30363d?style=flat-square" alt="Bangalore and Pune">
+  <img src="https://img.shields.io/badge/open_to-credit_risk_·_data_·_product_analyst-238636?style=flat-square" alt="Open to credit risk, data analyst and product analyst roles">
 </p>
 
----
+Every project below has a validation plan written **before** the first result, and each one reports the checks it failed.
 
-### `Pit Wall` — an F1 strategy model that failed the test I wrote for it first
+## Projects
 
-Before a single result existed, I wrote down the number that would call the model broken: if the
-strategy optimiser claimed to beat professional race strategists by more than **2 seconds** a car,
-it was wrong, not brilliant.
+<a href="https://vintage-credit-risk.vercel.app"><img src="assets/card-vintage.svg" alt="Vintage: credit-risk pack on 1.3M Freddie Mac loans. Out-of-time Gini 0.53, ECL $272.4m on $80.0bn, 143 tests." width="900"></a>
 
-It claimed **17.6**. Four rounds of genuine bug fixes walked that down 23.5 → 21.3 → 20.4 → 17.7,
-and then I stopped fixing — adjusting a model until a pre-registered check passes is how such a
-check gets quietly defeated. So I localised the failure instead. The simulator charges **+9.9 s
-[+2.3, +17.3]** for an extra pit stop that real races price at roughly nothing, because it runs
-every car flat out on its fitted wear rate while real drivers manage the tyre. **The per-team and
-per-driver strategy audit that depended on the optimiser is not published.**
+<p align="center"><b><a href="https://vintage-credit-risk.vercel.app">Live site</a></b> · <a href="https://vintage-credit-risk.vercel.app/powerbi">Power BI report</a> · <a href="https://github.com/Ghostboy789/vintage-credit-risk">Code</a> · <a href="https://github.com/Ghostboy789/vintage-credit-risk/blob/main/docs/COMMITTEE_MEMO.md">Committee memo</a></p>
 
-| | |
-|---|---|
-| **Data** | 185 races · 203,644 laps of public timing data |
-| **What passed** | Overtaking model, out-of-fold by race: AUC **0.915** · Brier 0.0487 · ECE 0.0025 on 64,646 opportunities |
-| **The finding** | A place on track is worth **≥ 8.7×** more at Monte Carlo than at the Circuit of the Americas — and those two are statistically separable while adjacent circuits are not, which is also reported |
-| **The hard part** | Teams pit when a tyre is finished, so wear is censored non-randomly — uncorrected data says hard tyres wear *faster* than soft. Censoring weights fix 11/29 circuits to 21/29 |
-| **Ships as** | 7 interactive dashboards, a 5-page Power BI report on a star schema checked against the pipeline by 48 DAX queries, and 118 tests |
+<a href="https://pitwall-f1-strategy.onrender.com"><img src="assets/card-pitwall.svg" alt="Pit Wall: F1 race-strategy model from 185 races. A place on track is worth at least 8.7 times more at Monaco than at COTA. Overtaking AUC 0.915, 118 tests." width="900"></a>
 
-Two calibrated fixes for the failed gate were **rejected**: each matched the quantity it was fitted
-to and missed the one it wasn't, and one made the gate worse.
+<p align="center"><b><a href="https://pitwall-f1-strategy.onrender.com">Live dashboard</a></b> · <a href="https://github.com/Ghostboy789/pitwall-f1-strategy">Code and validation plan</a></p>
 
-The reason this sits next to a credit model: censoring and survivorship, calibration over
-discrimination, partial pooling for thin segments, and effective challenge are the same problems a
-PD model has, wearing a different set of tyres.
+<a href="https://limitiq-credit-line-optimization.onrender.com"><img src="assets/card-limitiq.svg" alt="LimitIQ: credit-line decision system. ROC-AUC 0.781 (CI 0.767–0.796), Brier 0.133, 161 tests." width="900"></a>
 
-**[Live dashboard](https://pitwall-f1-strategy.onrender.com)** · **[Code, methodology and validation plan](https://github.com/Ghostboy789/pitwall-f1-strategy)**
-<br><sub>Free tier — the first load can take up to a minute to wake. Independent analysis of public timing data, not affiliated with Formula 1, the FIA or any team.</sub>
+<p align="center"><b><a href="https://limitiq-credit-line-optimization.onrender.com">Live app</a></b> · <a href="https://github.com/Ghostboy789/limitiq-credit-line-optimization">Code and governance docs</a></p>
 
----
+<p align="center"><sub>Pit Wall and LimitIQ run on a free tier: the first load can take up to a minute to wake.</sub></p>
 
-### `LimitIQ` — a credit-line decision system that documents why you shouldn't trust it
+<details>
+<summary><b>The part I'd want a risk person to read</b></summary>
+<br>
 
-I spent weeks building it. Then I made its headline number **85% smaller**.
+- **Vintage.** The scorecard ranks risk out of time (Gini 0.5336 [0.5055, 0.5625]) but six of seven grades fail out-of-time calibration. The overall ratio looks fine only because two windows err in opposite directions. The LightGBM challenger lost to a pre-set promotion rule and was not promoted. The memo recommends research use only.
+- **Pit Wall.** The optimiser claimed 17.6 s per car against a 2.0 s limit. After four rounds of real bug fixes I stopped, because tuning until a pre-registered check passes defeats the check. The cause: the simulator charges +9.9 s [+2.3, +17.3] for an extra pit stop that real races price at roughly nothing.
+- **LimitIQ.** Version one gave all 288 eligible accounts the maximum +30%: a corner solution from my own linear maths. Fixing it cut the headline contribution by 85%. A calibration challenge "won" by 0.00004 Brier with an interval crossing zero, so I didn't promote it.
 
-The first version reported ₹2.98M of incremental contribution. The action distribution gave it
-away: **all 288 eligible accounts were getting the maximum 30% increase.** That isn't an
-optimiser, it's a threshold rule in a costume. The cause was my own maths — a contribution
-function linear in the size of the increase, so the optimum was always a corner.
+</details>
 
-Adding response saturation and risk-dependent drawdown spread the decisions to 157 at +10%
-and 37 at +20%, and dropped contribution to **₹454,414**. That second number is the one I trust.
+## Toolkit
 
-| | |
-|---|---|
-| **Model** | Sigmoid-calibrated histogram gradient boosting, next-month default |
-| **Test** | ROC-AUC **0.781** (bootstrap CI 0.767–0.796) · PR-AUC 0.568 · Brier 0.133 |
-| **Discipline** | Frozen 18k/6k/6k split · test set read **once** · threshold fixed on validation first |
-| **Decisions** | Constrained +10/+20/+30%, hold, review, freeze under exposure, loss, capital and customer-protection limits |
-| **Governance** | Model card · validation review mapped to Fed SR 26-2 · 12-item issue ledger · randomised pilot design |
+<p>
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/SQL-336791?style=flat-square&logo=postgresql&logoColor=white" alt="SQL">
+  <img src="https://img.shields.io/badge/dbt-FF694B?style=flat-square&logo=dbt&logoColor=white" alt="dbt">
+  <img src="https://img.shields.io/badge/DuckDB-FFF000?style=flat-square&logo=duckdb&logoColor=black" alt="DuckDB">
+  <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white" alt="scikit-learn">
+  <img src="https://img.shields.io/badge/LightGBM-2c3e50?style=flat-square" alt="LightGBM">
+  <img src="https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black" alt="Power BI">
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI">
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker">
+  <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white" alt="GitHub Actions">
+</p>
 
-A calibration challenge picked isotonic as the winner — by 0.00004 Brier score. The confidence
-interval crossed zero, so **I didn't promote it.** Choosing a calibrator after seeing the
-comparison needs a fresh holdout I don't have. That decision is the part I'd most want a risk
-person to read.
+**Methods:** WoE/IV scorecards · IFRS 9 ECL · probability calibration · bootstrap intervals · survival and censoring · model validation
 
-**What it is not.** The data is Taiwan, 2005. There is no Indian validation and this is not a
-regulatory or IFRS 9 PD. Every rupee of economics is **simulated**, because no public dataset
-observes what happens when you actually raise someone's limit — which is why the repo ships a
-randomised pilot design instead of an uplift number. Five validation findings stay open because
-they cannot be closed without real institutional data. It is **educational, and not for real
-lending decisions.**
+<p>
+  <img height="165" src="https://github-readme-stats.vercel.app/api?username=Ghostboy789&show_icons=true&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=39d0c8&text_color=c9d1d9&count_private=true" alt="GitHub stats">
+  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Ghostboy789&layout=compact&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9" alt="Top languages">
+</p>
 
-**[Live app](https://limitiq-credit-line-optimization.onrender.com)** · **[Code and governance docs](https://github.com/Ghostboy789/limitiq-credit-line-optimization)**
-<br><sub>Free tier — the first load can take up to a minute to wake.</sub>
-
----
-
-### Other work
+## Other work
 
 | Project | What it is |
 |---|---|
@@ -87,15 +67,8 @@ lending decisions.**
 | [Salifort Motors attrition](https://github.com/Ghostboy789/Salifort-Motors) | Attrition modelling and driver analysis |
 | [Healthcare dashboard](https://github.com/Ghostboy789/Healthcare-Dashboard) · [Housing market analysis](https://github.com/Ghostboy789/Housing-market-analysis-using-tableau) | Analytics and visualisation work |
 
----
+## About
 
-### About
+Product Manager Intern, moving into **credit risk and data analytics**. B.Tech Computer Engineering, DY Patil University, 2026. I write the brief at work; these projects are where I do the model-layer work myself.
 
-Product management intern at GaragePlug, moving toward **credit risk analytics and model
-development**. I built LimitIQ to find out whether I could do the model-layer work myself
-rather than only writing the brief for it, and Pit Wall to find out what happens when you
-write the validation plan before the results — and then publish the run that failed it.
-
-Open to credit risk analyst, risk analytics and model development roles in Pune and Mumbai.
-
-**[LinkedIn](https://www.linkedin.com/in/medhansh-shekhawat/)**
+Open to credit risk, data analyst and product analyst roles in **Bangalore and Pune**.
