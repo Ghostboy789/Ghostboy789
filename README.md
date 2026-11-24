@@ -24,6 +24,10 @@ Every project below has a validation plan written **before** the first result, a
 
 <p align="center"><b><a href="https://limitiq-credit-line-optimization.onrender.com">Live app</a></b> · <a href="https://github.com/Ghostboy789/limitiq-credit-line-optimization">Code and governance docs</a></p>
 
+<a href="https://first-payment.vercel.app"><img src="assets/card-first-payment.svg" alt="First Payment: a randomised microfinance trial read as a credit pilot. Default rose 6.14 pp (1.20 to 11.09) against a 2-point cap, so the pilot fails." width="900"></a>
+
+<p align="center"><b><a href="https://first-payment.vercel.app">Live site</a></b> · <a href="https://github.com/Ghostboy789/first-payment">Code</a> · <a href="https://github.com/Ghostboy789/first-payment/blob/main/docs/MEMO.md">Decision memo</a></p>
+
 <a href="https://complaint-radar-seven.vercel.app"><img src="assets/card-complaint-radar.svg" alt="Complaint Radar: routing 17.5M CFPB bank complaints from their text. Small model macro-F1 0.656 against 0.617 for Llama 3.1 8B; all three pre-registered tests failed." width="900"></a>
 
 <p align="center"><b><a href="https://complaint-radar-seven.vercel.app">Live site</a></b> · <a href="https://github.com/Ghostboy789/complaint-radar">Code</a> · <a href="https://github.com/Ghostboy789/complaint-radar/blob/main/docs/FINDINGS.md">Findings</a></p>
@@ -41,6 +45,7 @@ Every project below has a validation plan written **before** the first result, a
 - **Vintage.** The scorecard ranks risk out of time (Gini 0.5336 [0.5055, 0.5625]) but six of seven grades fail out-of-time calibration. The overall ratio looks fine only because two windows err in opposite directions. The LightGBM challenger lost to a pre-set promotion rule and was not promoted. The memo recommends research use only.
 - **Pit Wall.** The optimiser claimed 17.6 s per car against a 2.0 s limit. After four rounds of real bug fixes I stopped, because tuning until a pre-registered check passes defeats the check. The cause: the simulator charges +9.9 s [+2.3, +17.3] for an extra pit stop that real races price at roughly nothing.
 - **LimitIQ.** Version one gave all 288 eligible accounts the maximum +30%: a corner solution from my own linear maths. Fixing it cut the headline contribution by 85%. A calibration challenge "won" by 0.00004 Brier with an interval crossing zero, so I didn't promote it.
+- **First Payment.** The grace period raised weekly profit by ₹906.6 [168.7, 1,644.4] among borrowers with recorded profit, but default rose 6.14 points [1.20, 11.09] against a 2-point cap I set before fitting, so the pilot fails. Trimming extreme profits also makes the profit check fail.
 - **Complaint Radar.** All three tests I fixed in advance failed. A TF-IDF model beat Llama 3.1 8B on macro-F1 (0.656 vs 0.617, difference −0.038 [−0.056, −0.021]), the router reached 88.8% precision against a 95% target, and the alarm rule caught 1 of 5 known events.
 - **Buyer Analytics.** My planned single-session funnel missed 41% of purchasing sessions, so I published both versions. Most of January's apparent fall in order value was a tracking fault: 24.2% of January orders recorded zero revenue.
 
