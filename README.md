@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/badge/open_to-credit_risk_·_data_·_product_analyst-238636?style=flat-square" alt="Open to credit risk, data analyst and product analyst roles">
 </p>
 
-Every project below has a validation plan written **before** the first result, and each one reports the checks it failed.
+Every analysis below has a validation plan written **before** the first result, and each one reports the checks it failed. diffscope, the tool at the end, is tested against cases with known answers.
 
 ## Projects
 
@@ -35,6 +35,10 @@ Every project below has a validation plan written **before** the first result, a
 <a href="https://buyer-analytics.vercel.app"><img src="assets/card-buyer-analytics.svg" alt="Buyer Analytics: SQL-first product analytics on 4.3M GA4 events. Session conversion 1.35%; daily peeking gave 27.2% false wins." width="900"></a>
 
 <p align="center"><b><a href="https://buyer-analytics.vercel.app">Live site</a></b> · <a href="https://github.com/Ghostboy789/buyer-analytics">Code</a> · <a href="https://github.com/Ghostboy789/buyer-analytics/blob/main/docs/FINDINGS.md">Findings</a></p>
+
+<a href="https://diffscope.vercel.app"><img src="assets/card-diffscope.svg" alt="diffscope: comments on a dbt pull request with what the change did to the data. 10M rows per side in 0.541 s, 8 of 8 known-answer scenarios, 67 tests." width="900"></a>
+
+<p align="center"><b><a href="https://diffscope.vercel.app">Live site</a></b> · <a href="https://github.com/Ghostboy789/diffscope">Code</a> · <a href="https://github.com/Ghostboy789/diffscope/pull/1">Example PR comment</a></p>
 
 <p align="center"><sub>Pit Wall and LimitIQ run on a free tier: the first load can take up to a minute to wake.</sub></p>
 
@@ -80,7 +84,7 @@ Every project below has a validation plan written **before** the first result, a
 | [Financial fraud detection](https://github.com/Ghostboy789/Advanced-Model-For-Financial-Fraud-Detection) | Co-authored a **filed** patent application and a published paper on the approach with a faculty advisor |
 | [TikTok claims classification](https://github.com/Ghostboy789/TikTok-Analysis-Project) | Claim-vs-opinion modelling on a large annotated corpus |
 | [Salifort Motors attrition](https://github.com/Ghostboy789/Salifort-Motors) | Attrition modelling and driver analysis |
-| [Healthcare dashboard](https://github.com/Ghostboy789/Healthcare-Dashboard) · [Housing market analysis](https://github.com/Ghostboy789/Housing-market-analysis-using-tableau) | Analytics and visualisation work |
+| [Healthcare dashboard](https://github.com/Ghostboy789/Healthcare-Dashboard) · [Adventure park dashboard](https://github.com/Ghostboy789/Adventure-Dataset-Dashboard) · [Housing market analysis](https://github.com/Ghostboy789/Housing-market-analysis-using-tableau) | Analytics and visualisation work |
 
 ## About
 
